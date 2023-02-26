@@ -1,14 +1,14 @@
-# Como instalar
+# How to install
 
-1. Instalar Stow
+1. Install Stow
 
 ```
 brew install stow
 ```
 
-2. Clonar este repo
-3. Navegar via la terminal hasta el directorio donde está este repo
-4. Usar alguna permutación de este comando
+2. Clone this repo
+3. cd into the directory where this repo was cloned (usually .dotfiles or something like that)
+4. Use the correct variation of the following command
 
 ```
 stow --target=$HOME <nombre-del-directorio-que-instalar>
