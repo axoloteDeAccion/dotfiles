@@ -126,8 +126,20 @@ keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opt
 wk.register({
   l = { 
     name = "LSP",
-    f = { "Format" }
+    f = { "Format" },
+    D = { "Go to declaration" },
+    d = { "Go to definition" },
+    K = { "Hover" },
+    I = { "Go to implementation" },
+    R = { "Reference" },
+    l = { "Diagnostics" },
+    i = { "LspInfo" },
+    I = { "Mason" },
+    a = { "Code action" },
+    j = { "Go to next" },
+    k = { "Go to previous" },
+    r = { "Rename" },
+    s = { "Signature help" },
+    q = { "Set loclist" },
   },
 }, { prefix = "<leader>" })
-
--- document which-key
