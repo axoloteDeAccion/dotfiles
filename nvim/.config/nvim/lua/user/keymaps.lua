@@ -1,5 +1,9 @@
+-- Which-key to remap
+local status_ok, wk = pcall(require, "which-key")
+
 -- Shorten function name
 local keymap = vim.keymap.set
+
 -- Silent keymap option
 local opts = { silent = true }
 
@@ -34,6 +38,9 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+wk.register({
+  h = { "Remove highlights" },
+}, { prefix = "<leader>" })
 
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
@@ -50,6 +57,9 @@ keymap("v", ">", ">gv", opts)
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+wk.register({
+  e = { "Open File Explorer" },
+}, { prefix = "<leader>" })
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files hidden=true<CR>", opts)
@@ -57,12 +67,34 @@ keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
+-- Register which-key labels
+wk.register({
+  f = {
+    name = "Telescope",
+    f = { "Find file" },
+    t = { "Find text" },
+    p = { "Find project" },
+    b = { "Find buffer" },
+  },
+}, { prefix = "<leader>" })
+
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>gb", '<cmd>lua require"gitsigns".blame_line()<CR>')
+wk.register({
+  g = { 
+    name = "Git" ,
+    g = { "Open Lazygit" },
+    b = { "Blame" },
+  },
+}, { prefix = "<leader>" })
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
+wk.register({
+  ['/'] = { "Toggle comment" },
+}, { prefix = "<leader>" })
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
@@ -74,6 +106,28 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+wk.register({
+  d = { 
+    name = "DAP",
+    b = { "Toggle breakpoint" },
+    c = { "Continue" },
+    i = { "Step into" },
+    o = { "Step over" },
+    O = { "Step Out" },
+    r = { "REPL toggle" },
+    l = { "Run last" },
+    u = { "DAPUI Toggle" },
+    t = { "Terminate" },
+  },
+}, { prefix = "<leader>" })
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+wk.register({
+  l = { 
+    name = "LSP",
+    f = { "Format" }
+  },
+}, { prefix = "<leader>" })
+
+-- document which-key
