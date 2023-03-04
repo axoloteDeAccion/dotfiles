@@ -16,6 +16,17 @@ local diagnostics = {
   always_visible = true,
 }
 
+local filepath = {
+  "filename",
+  path = 1,
+  symbols = {
+    modified = '[+]',      -- Text to show when the file is modified.
+    readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
+    unnamed = '[No Name]', -- Text to show for unnamed buffers.
+    newfile = '[New]',     -- Text to show for newly created file before first write
+  }
+}
+
 local diff = {
   "diff",
   colored = false,
@@ -50,7 +61,10 @@ lualine.setup {
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch" },
-    lualine_c = { diagnostics },
+    lualine_c = { 
+      diagnostics, 
+      filepath
+    },
     lualine_x = { diff, spaces, "encoding", filetype },
     lualine_y = { location },
     lualine_z = { "progress" },

@@ -99,6 +99,8 @@ return packer.startup(function(use)
 
   use { "APZelos/blamer.nvim" }
 
+  use { "bluz71/vim-moonfly-colors", as = "moonfly" }
+
   use { 
     "folke/which-key.nvim"
   }
