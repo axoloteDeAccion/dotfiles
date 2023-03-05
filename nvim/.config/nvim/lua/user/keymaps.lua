@@ -123,12 +123,12 @@ wk.register({
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
-keymap("n", "lD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-keymap("n", "ld", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("n", "lK", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-keymap("n", "lI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-keymap("n", "lR", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+keymap("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "<leader>lK", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap("n", "<leader>lI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+keymap("n", "<leader>lR", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+keymap("n", "<leader>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 keymap("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 keymap("n", "<leader>lI", "<cmd>Mason<cr>", opts)
 keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
