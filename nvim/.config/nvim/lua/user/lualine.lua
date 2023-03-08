@@ -50,12 +50,28 @@ end
 
 lualine.setup {
   options = {
-    globalstatus = true,
+    globalstatus = false,
     icons_enabled = true,
     theme = "auto",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
-    disabled_filetypes = { "alpha", "dashboard" },
+    disabled_filetypes = { 
+      statusline = {},
+      winbar = {
+        "help",
+        "startify",
+        "dashboard",
+        "packer",
+        "neogitstatus",
+        "NvimTree",
+        "Trouble",
+        "alpha",
+        "lir",
+        "Outline",
+        "spectre_panel",
+        "toggleterm",
+      },
+    },
     always_divide_middle = true,
   },
   sections = {
@@ -68,5 +84,15 @@ lualine.setup {
     lualine_x = { diff, spaces, "encoding", filetype },
     lualine_y = { location },
     lualine_z = { "progress" },
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { 
+      filepath
+    },
+    lualine_x = { diff, spaces, "encoding", filetype },
+    lualine_y = {},
+    lualine_z = {},
   },
 }
